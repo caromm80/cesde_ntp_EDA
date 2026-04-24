@@ -1,4 +1,4 @@
-# 🚀 Proyecto Integrador: Analítica de Datos
+# 🚀 Proyecto Integrador: Analítica de Datos.
 
 ## 📋 Descripción
 Proyecto integrador que implementa un Análisis Exploratorio de Datos (EDA) interactivo usando **Streamlit** y **Pandas**. Permite cargar datasets en formato CSV y explorar sus características, estadísticas y patrones sin necesidad de gráficos, enfocándose en la interpretación numérica y textual.
