@@ -84,7 +84,26 @@ for i, persona in enumerate(integrantes):
 
 st.divider()
 
-# --- 4. Tecnologías Utilizadas ---
+# --- 4. Características del Proyecto ---
+st.header("✨ Características Principales")
+
+feat_col1, feat_col2, feat_col3 = st.columns(3)
+
+with feat_col1:
+    st.markdown("### 📊 Análisis Exploratorio (EDA)")
+    st.write("Herramienta interactiva para cargar y explorar datasets CSV con estadísticas detalladas y análisis de calidad de datos.")
+
+with feat_col2:
+    st.markdown("### 🌐 Integración con MockAPI")
+    st.write("Conexión en tiempo real con APIs de MockAPI para consumir datos de accidentes de tránsito y vehículos asegurados.")
+
+with feat_col3:
+    st.markdown("### 📝 Generación de Reportes")
+    st.write("Formulario interactivo para documentar hallazgos y generar reportes en formato Markdown descargables.")
+
+st.divider()
+
+# --- 5. Tecnologías Utilizadas ---
 st.header("🛠️ Tecnologías")
 
 tech_col1, tech_col2, tech_col3 = st.columns(3)
@@ -100,6 +119,36 @@ with tech_col2:
 with tech_col3:
     st.markdown("### 🎈 Streamlit")
     st.write("Framework para la creación de aplicaciones web interactivas de datos.")
+
+st.divider()
+
+# --- 6. Navegación ---
+st.header("🗺️ Guía de Navegación")
+
+nav_col1, nav_col2 = st.columns(2)
+
+with nav_col1:
+    st.markdown("""
+    #### 📋 Secciones Disponibles:
+    1. **Análisis Exploratorio de Datos (EDA)**
+       - Carga de datasets CSV
+       - Estadísticas descriptivas
+       - Análisis de calidad de datos
+    """)
+
+with nav_col2:
+    st.markdown("""
+    2. **Gestión de Accidentes de Tránsito - MockAPI**
+       - Consumo de datos en tiempo real
+       - Filtros por ciudad y tipo de accidente
+       - Visualización de vehículos asegurados
+    
+    3. **Resultados (EDA)**
+       - Formulario de conclusiones
+       - Generación de reportes
+    """)
+
+st.divider()
 
 # --- Pie de página ---
 st.sidebar.success("👈 Usa el menú lateral para navegar entre las secciones del proyecto.")
