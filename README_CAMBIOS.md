@@ -1,52 +1,157 @@
-# 📊 Resumen Ejecutivo: Proyecto Actualizado ✅
+# � Cambios Realizados: Adaptación a Creciendo Juntos
 
-## Estado General
+## 🎯 Resumen de la Adaptación
 
-**Resultado:** ✅ **PROYECTO ACTUALIZADO Y CUMPLE 100% DE REQUISITOS**
-
-Tu proyecto de **Análisis de Accidentes de Tránsito** ahora cumple completamente con los requisitos mostrados en las imágenes (Paso 1, 2, 3).
+El proyecto ha sido transformado de un **análisis de accidentes de tránsito** a una **plataforma educativa llamada Creciendo Juntos** que se integra con una **API Java del grupo**.
 
 ---
 
-## 🎯 Lo Que Se Hizo
+## 📋 Cambios por Archivo
 
-### 1. Análisis de Requisitos ✅
-Identificamos que el proyecto necesitaba:
-- Consumo de datos desde MockAPI
-- Página `3_Consumo_de_API.py`
-- Integración con dos entidades de datos
+### 1. **config.py** (NUEVO) ✨
+**Estado:** Creado
+**Propósito:** Centralizar la configuración de la API Java
 
-### 2. Creación de Nuevas Páginas ✅
+**Contenido:**
+- `API_CONFIG`: Configuración centralizada de endpoints
+- `get_endpoint_url()`: Función para obtener URLs de endpoints
+- `get_timeout()`: Función para obtener timeout configurado
+- Endpoints flexibles: estudiantes, cursos, calificaciones, inscripciones
 
-#### 📄 `pages/3_Consumo_de_API.py` (NUEVA)
+---
+
+### 2. **Inicio.py** (MODIFICADO)
+**Cambios principales:**
+- ✅ Título: "🎓 Creciendo Juntos: Plataforma Educativa"
+- ✅ Subtítulo: "Transformando la Educación a través de Analítica de Datos"
+- ✅ Contexto: Cambio de accidentes a educación
+- ✅ Objetivos: Adaptados a mejora educativa
+- ✅ Equipo: Roles relacionados con proyecto educativo y Java
+- ✅ Características: API Java en lugar de MockAPI
+- ✅ Pie de página: "Creciendo Juntos | Plataforma Educativa"
+
+---
+
+### 3. **pages/1_Análisis Exploratorio de Datos (EDA).py** (MODIFICADO)
+**Cambios realizados:**
+- ✅ Título: Se agregó "- Creciendo Juntos"
+- ✅ Descripción: "detective educativo" en contexto educativo
+- ✅ Instrucciones: Menciona descarga desde API
+- ✅ Ejemplos: Contexto educativo
+
+---
+
+### 4. **pages/2_Resultados (EDA).py** (MODIFICADO)
+**Cambios realizados:**
+- ✅ Título: "📝 Resultados del Análisis: Creciendo Juntos"
+- ✅ Contexto: Ejemplos sobre datos educativos
+- ✅ Placeholders: Estudiantes, cursos, calificaciones
+- ✅ Reporte: Incluye identificación del proyecto
+- ✅ Descarga: Nombre incluye "creciendo_juntos"
+
+---
+
+### 5. **pages/3_Consumo_de_API.py** (COMPLETAMENTE REESCRITO) ⭐
+**ANTES:**
+- Conectaba a MockAPI (accidentes de tránsito)
+- Endpoints fijos: "/reportes"
+- Datos sobre accidentes y vehículos
+
+**DESPUÉS:**
+- ✅ Conecta a API Java genérica configurable
+- ✅ Endpoints flexibles: estudiantes, cursos, calificaciones, inscripciones
+- ✅ Importa configuración desde `config.py`
+- ✅ Panel de configuración en barra lateral (editar URL y timeout)
+- ✅ Selector dinámico de entidades (radio buttons)
+- ✅ Mejor manejo de errores (conexión, timeout, formato)
+- ✅ Soporta múltiples formatos JSON (array o {"data": []})
+- ✅ Información técnica mejorada
+- ✅ Descarga de datos como CSV
+
+---
+
+## 🎓 Cambios de Contexto Temático
+
+| Aspecto | Antes | Después |
+|--------|-------|---------|
+| **Dominio** | Accidentes de tránsito | Educación |
+| **Datos** | Ciudades, accidentes, heridos | Estudiantes, cursos, calificaciones |
+| **Análisis** | Patrones de riesgo vial | Desempeño académico |
+| **Insights** | Recomendaciones seguridad | Mejoras educativas |
+| **API** | MockAPI | API Java del grupo |
+
+---
+
+## 🔌 Configuración Requerida
+
+### Editar `config.py`:
+
+```python
+API_CONFIG = {
+    "base_url": "http://localhost:8080",  # 👈 Cambiar por tu URL
+    "timeout": 10,
+    "endpoints": {
+        "estudiantes": "/api/estudiantes",      # 👈 Adaptar endpoints
+        "cursos": "/api/cursos",
+        "calificaciones": "/api/calificaciones",
+        "inscripciones": "/api/inscripciones",
+    }
+}
 ```
-Características:
-├── Conexión a MockAPI con ID: 69f350d4bd2396bf530fbde8
-├── Sección 1: Reportes de Accidentes
-│   ├── Filtros: Por Ciudad, Por Tipo de Accidente
-│   └── Métricas: Total, Severidad Promedio
-├── Sección 2: Vehículos Asegurados
-│   ├── Filtros: Por Ciudad, Por Tipo de Vehículo
-│   └── Métricas: Total de Vehículos
-└── Botón de Refrescado de Datos
+
+### Requisitos de la API Java:
+
+La API debe retornar JSON en uno de estos formatos:
+
+**Formato 1: Array directo**
+```json
+[{"id": 1, "nombre": "Juan"}, {"id": 2, "nombre": "María"}]
 ```
 
-### 3. Documentación Completa ✅
+**Formato 2: Objeto con propiedad "data"**
+```json
+{"data": [{"id": 1, "nombre": "Juan"}, {"id": 2, "nombre": "María"}]}
+```
 
-#### 📋 `SETUP_MOCKAPI.md` (NUEVA)
-Guía paso a paso para configurar MockAPI:
-- Crear cuenta en mockapi.io
-- Crear proyecto con ID proporcionado
-- Crear 2 entidades: `reportes` y `vehiculos`
-- Configurar campos con datos realistas
-- Verificar conectividad
+---
 
-#### 📋 `CUMPLIMIENTO_REQUISITOS.md` (NUEVA)
-Documento de verificación que demuestra:
-- Cumplimiento del Paso 1: Configuración MockAPI
-- Cumplimiento del Paso 2: Código API
-- Cumplimiento del Paso 3: Ejecución
-- Adaptación al contexto de accidentes
+## 📊 Nuevas Características
+
+✅ **Configuración flexible** - URL y endpoints editables
+✅ **Panel de control** - Configura API desde la interfaz
+✅ **Selector de entidades** - Elige qué datos analizar
+✅ **Manejo robusto** - Mensajes de error claros
+✅ **Múltiples formatos** - Detecta automáticamente respuestas JSON
+✅ **Exportación** - Descarga datos como CSV
+✅ **Interfaz educativa** - Contexto y ejemplos educativos
+
+---
+
+## 📁 Archivos Nuevos/Modificados
+
+```
+✅ config.py                          - NUEVO: Configuración centralizada
+✅ Inicio.py                          - MODIFICADO: Contexto educativo
+✅ pages/1_Análisis...py             - MODIFICADO: Referencias educativas
+✅ pages/2_Resultados...py           - MODIFICADO: Ejemplos educativos
+✅ pages/3_Consumo_de_API.py         - REESCRITO: API Java flexible
+✅ GUIA_API_JAVA.md                  - NUEVO: Guía de integración
+✅ README_CAMBIOS.md                 - ACTUALIZADO: Este archivo
+```
+
+---
+
+## 🚀 Próximos Pasos
+
+1. **Configurar API Java** - Editar `config.py` con tus valores
+2. **Verificar conectividad** - Usar botón "🔄 Refrescar Datos"
+3. **Probar endpoints** - Desde terminal con `curl`
+4. **Explorar datos** - Usar sección de Análisis Exploratorio
+5. **Generar reportes** - Documentar hallazgos educativos
+
+---
+
+**✅ Adaptación completada. El proyecto está listo para conectar con tu API Java.**
 
 ### 4. Actualizaciones a Archivos Existentes ✅
 

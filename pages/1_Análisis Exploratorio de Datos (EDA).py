@@ -4,29 +4,29 @@ import os
 
 # Configuración de la página
 st.set_page_config(
-    page_title="Análisis Exploratorio de Datos (EDA)",
+    page_title="EDA - Creciendo Juntos",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🔍 Análisis Exploratorio de Datos (EDA)")
+st.title("🔍 Análisis Exploratorio de Datos (EDA) - Creciendo Juntos")
 st.markdown("""
-Tu misión es actuar como un **detective de datos**. A partir de las tablas y estadísticas que verás a continuación, 
-debes deducir el contexto, el origen y el propósito de este conjunto de datos.
+Tu misión es actuar como un **detective educativo**. A partir de los datos que cargues o descargues de nuestra API Java, 
+debes explorar, entender y extraer insights sobre estudiantes, cursos y desempeño académico.
 """)
 
 # --- Barra Lateral ---
 with st.sidebar:
     st.header("📋 Instrucciones")
     st.info("""
-    1. **Carga el dato**: Usa el arquivo local o sube uno nuevo
-    2. **Previsualiza**: Observa las primeras filas
-    3. **Inspecciona**: Mira las dimensiones y tipos
-    4. **Analiza Limpieza**: ¿Faltan muchos datos?
-    5. **Deduce**: Usa las estadísticas para entender
+    1. **Carga los datos**: Usa un archivo local o descárgalos desde la API
+    2. **Previsualiza**: Observa las primeras filas del dataset
+    3. **Inspecciona**: Mira las dimensiones y tipos de datos
+    4. **Analiza Calidad**: ¿Faltan muchos datos? ¿Hay inconsistencias?
+    5. **Deduce**: Usa las estadísticas para entender patrones educativos
     """)
-    st.warning("⚠️ El análisis se enfoca en números y texto sin gráficos.")
+    st.warning("⚠️ Este análisis se enfoca en exploración de datos sin gráficos complejos.")
 
 # --- 1. Carga de Datos ---
 st.header("📂 Carga de Datos")

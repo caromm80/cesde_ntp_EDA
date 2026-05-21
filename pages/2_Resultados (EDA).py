@@ -3,50 +3,50 @@ from datetime import datetime
 
 # Configuración de la página
 st.set_page_config(
-    page_title="Resultados - Análisis Exploratorio",
+    page_title="Resultados - Creciendo Juntos",
     page_icon="📝",
     layout="wide"
 )
 
-st.title("📝 Plantilla de Entrega: Resultados del EDA")
+st.title("📝 Resultados del Análisis: Creciendo Juntos")
 st.markdown("""
 ### Instrucciones
-Utiliza esta página para documentar tus hallazgos observados en la pestaña de **Análisis Exploratorio de Datos**. 
-Complete cada sección de forma clara y concisa.
+Utiliza esta página para documentar tus hallazgos observados en el **Análisis Exploratorio de Datos**. 
+Completa cada sección de forma clara y concisa para generar tu reporte de análisis educativo.
 """)
 
 st.divider()
 
 # --- Formulario de Resultados ---
-st.header("📋 Formulario de Análisis")
+st.header("📋 Formulario de Análisis Educativo")
 
 with st.form("form_resultados"):
     st.subheader("🔍 1. Identificación y Contexto")
     contexto = st.text_area(
         "¿De qué se trata el dataset? ¿Cuál es su origen y propósito?",
-        placeholder="Ej: El dataset contiene registro de accidentes de tránsito en Colombia durante 2023, con información detallada sobre ubicación, tipo de accidente, participantes y circunstancias...",
+        placeholder="Ej: El dataset contiene información de 150 estudiantes inscritos en programas educativos, con datos sobre cursos, calificaciones y progreso académico...",
         height=100
     )
 
     st.subheader("❗ 2. Calidad de los Datos")
     calidad = st.text_area(
         "¿Qué encontraste sobre datos faltantes y limpieza?",
-        placeholder="Ej: El dataset está completo sin valores nulos. Se observó coherencia en los tipos de datos (fechas, números, categorías)...",
+        placeholder="Ej: El dataset está 95% completo. Se observaron valores nulos en la columna de 'fecha_egreso' para estudiantes activos. La consistencia de tipos es excelente...",
         height=100
     )
 
     st.subheader("📈 3. Hallazgos Estadísticos Clave")
     estadisticas = st.text_area(
         "¿Cuáles son los números y categorías más relevantes?",
-        placeholder="Ej: El promedio de edad es 35 años. La categoría más frecuente es 'Choque'. Se observa mayor ocurrencia en zonas urbanas frente a rurales...",
+        placeholder="Ej: El promedio de calificación es 3.8/5.0. El 70% de estudiantes están activos. La edad promedio es 22 años. Los cursos más populares son Matemáticas (45%) e Inglés (38%)...",
         height=100
     )
 
-    st.subheader("💡 4. Conclusión Final")
+    st.subheader("💡 4. Conclusión Final y Recomendaciones")
     conclusion = st.text_area(
-        "¿Cuál es el mensaje principal de los datos?",
-        placeholder="Ej: Los datos revelan una alta concentración de accidentes en períodos nocturnos, especialmente con conductores bajo influencia del alcohol...",
-        height=80
+        "¿Cuál es el mensaje principal de los datos y qué se puede mejorar?",
+        placeholder="Ej: Los datos indican que hay un 85% de retención estudiantil. Se recomienda implementar apoyo académico adicional en Cálculo donde la tasa de reprobación es del 20%...",
+        height=100
     )
     
     # Botón de envío
@@ -61,6 +61,7 @@ if enviado:
         fecha_reporte = datetime.now().strftime("%d/%m/%Y %H:%M")
         
         reporte_md = f"""# Reporte de Análisis Exploratorio de Datos (EDA)
+## Proyecto: Creciendo Juntos - Plataforma Educativa
 
 **Fecha de Generación:** {fecha_reporte}
 
@@ -77,6 +78,34 @@ if enviado:
 {calidad}
 
 ---
+
+## 3️⃣ Hallazgos Estadísticos Clave
+
+{estadisticas}
+
+---
+
+## 4️⃣ Conclusión Final y Recomendaciones
+
+{conclusion}
+
+---
+
+**Generado por:** Creciendo Juntos - Plataforma de Analítica Educativa
+"""
+        
+        # Mostrar reporte
+        st.markdown(reporte_md)
+        
+        # Descargar reporte
+        st.download_button(
+            label="📥 Descargar Reporte (Markdown)",
+            data=reporte_md,
+            file_name=f"reporte_eda_creciendo_juntos_{fecha_reporte.replace('/', '-').replace(':', '')}.md",
+            mime="text/markdown"
+        )
+    else:
+        st.error("⚠️ Por favor completa todas las secciones antes de generar el reporte.")
 
 ## 3️⃣ Hallazgos Estadísticos Clave
 
